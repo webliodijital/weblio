@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | Weblio Dijital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ANA SAYFA İLE BİREBİR AYNI TEMEL STİLLER --- */
+        :root {
+            --primary-dark: #0a192f;
+            --accent-gradient: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%);
+            --text-muted: #8892b0;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--white); color: var(--primary-dark); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; transition: var(--transition); }
+
+        /* --- HEADER (index.html ile Birebir) --- */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 0; background: rgba(255,255,255,0.95); border-bottom: 1px solid #eee; transition: var(--transition); }
+        header.sticky { padding: 12px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.05); backdrop-filter: blur(10px); }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary-dark); letter-spacing: -1px; }
+        .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--primary-dark); font-weight: 500; font-size: 14px; }
+        .btn-primary { background: var(--accent-gradient); color: white !important; padding: 10px 22px; border-radius: 50px; font-weight: 600; font-size: 14px; }
+
+        /* --- İLETİŞİM SAYFASI İÇERİK --- */
+        .page-header { padding: 150px 0 60px; background: var(--bg-light); text-align: center; }
+        
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0 100px; }
+
+        /* Form Kısmı */
+        .form-side { background: white; padding: 40px; border-radius: 20px; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #e2e8f0; border-radius: 10px; font-family: inherit; }
+        .form-group textarea { height: 120px; }
+        
+        .submit-btn { width: 100%; padding: 15px; background: var(--primary-dark); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; transition: var(--transition); }
+        .submit-btn:hover { background: #112240; transform: translateY(-2px); }
+
+        /* WhatsApp Butonu */
+        .whatsapp-btn { 
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; padding: 15px; background: #25D366; color: white; 
+            border-radius: 10px; font-weight: 700; margin-top: 15px; transition: var(--transition);
+        }
+        .whatsapp-btn:hover { background: #1ebd59; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
+
+        /* Harita Kısmı */
+        .map-side { border-radius: 20px; overflow: hidden; border: 1px solid #eee; height: 100%; min-height: 450px; }
+        .map-side iframe { width: 100%; height: 100%; min-height: 450px; border: 0; }
+
+        /* --- FOOTER (index.html ile Birebir) --- */
+        footer { background: #050c18; color: white; padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
+        .footer-logo { font-size: 24px; font-weight: 700; color: white; margin-bottom: 20px; display: block; }
+        .footer-links h4 { margin-bottom: 25px; font-size: 18px; }
+        .footer-links a { display: block; color: var(--text-muted); margin-bottom: 12px; font-size: 14px; }
+        .footer-links a:hover { color: white; transform: translateX(5px); }
+        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 13px; }
+
+        @media (max-width: 992px) { .contact-wrapper { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="logo">Weblio</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="index.html#services">Hizmetler</a></li>
+                    <li><a href="index.html#portfolio">Çalışmalarımız</a></li>
+                    <li><a href="hizmet-sozlesmesi.html">Paketler</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                    <li><a href="index.html#contact" class="btn-primary">Teklif Al</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Bize Ulaşın</h1>
+            <p style="color: var(--text-muted);">Weblio Dijital ofisine bekleriz veya bir mesaj uzağınızdayız.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="contact-wrapper">
+            <!-- Form Tarafı -->
+            <div class="form-side">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Adınız Soyadınız</label>
+                        <input type="text" required placeholder="Örn: Onur Başaran">
+                    </div>
+                    <div class="form-group">
+                        <label>Talebiniz / Mesajınız</label>
+                        <textarea required placeholder="İhtiyacınız olan hizmetten kısaca bahsedin..."></textarea>
+                    </div>
+                </form>
+
+
+                <a href="https://wa.me/905308775368?text=Bilgi%20almak%20istiyorum" target="_blank" class="whatsapp-btn">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                    </svg>
+                    WhatsApp ile İletişime Geç
+                </a>
+            </div>
+
+            <!-- Harita Tarafı -->
+            <div class="map-side">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1859.3486150614724!2d27.007953913022746!3d38.39434335851803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ec29a5172d435b%3A0x16c1e22973512368!2sWeblio%20Dijital!5e0!3m2!1str!2str!4v1771322374934!5m2!1str!2str" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">Weblio</a>
+                    <p style="color: var(--text-muted); font-size: 14px;">Geleceğin dijital dünyasında markanızı birlikte inşa edelim. Profesyonel çözümler, şeffaf hizmet.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Hızlı Menü</h4>
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="index.html#services">Hizmetler</a>
+                    <a href="index.html#portfolio">Çalışmalarımız</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Yasal Bilgiler</h4>
+                    <a href="hizmet-sozlesmesi.html">Hizmet Sözleşmesi</a>
+                    <a href="gizlilik-politikasi.html">Gizlilik Politikası</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Weblio Digital Solutions. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('sticky', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>
