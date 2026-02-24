@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hediyelerimiz | Weblio Dijital</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0a192f;
+            --blue: #007cf0;
+            --bg-light: #f4f7fa;
+            --text-muted: #8892b0;
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--white); color: var(--primary-dark); overflow-x: hidden; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* --- HEADER --- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 20px 0; background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+        header.sticky { padding: 12px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary-dark); text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { color: var(--primary-dark); font-weight: 500; font-size: 14px; text-decoration: none; }
+        .btn-header { background: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%); color: white !important; padding: 8px 20px; border-radius: 50px; font-weight: 600; }
+
+        /* --- HERO SECTION --- */
+        .hero-gifts {
+            padding: 160px 0 80px;
+            background: radial-gradient(circle at top right, #f0f7ff, var(--white));
+            text-align: center;
+        }
+        .hero-gifts h1 { font-family: 'Montserrat'; font-size: 42px; margin-bottom: 15px; letter-spacing: -1px; }
+        .hero-gifts p { max-width: 700px; margin: 0 auto; color: var(--text-muted); font-size: 18px; line-height: 1.6; }
+
+        /* --- SHOWCASE SECTION --- */
+        .showcase { padding: 40px 0 100px; }
+        
+        .story-card {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 120px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition);
+        }
+        .story-card.reveal { opacity: 1; transform: translateY(0); }
+        .story-card:nth-child(even) { flex-direction: row-reverse; }
+
+        .story-image {
+            flex: 1;
+            position: relative;
+        }
+        .story-image img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        /* Resim arkasındaki dekoratif kare */
+        .story-image::after {
+            content: '';
+            position: absolute;
+            top: -20px; left: -20px;
+            width: 100px; height: 100px;
+            background: var(--blue);
+            opacity: 0.1;
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .story-content { flex: 1; }
+        .category-tag { 
+            display: inline-block; padding: 5px 15px; background: #eef6ff; 
+            color: var(--blue); border-radius: 50px; font-size: 12px; 
+            font-weight: 700; margin-bottom: 15px; text-transform: uppercase;
+        }
+        .story-content h2 { font-family: 'Montserrat'; font-size: 32px; margin-bottom: 20px; }
+        .story-content p { color: #555; font-size: 16px; line-height: 1.8; margin-bottom: 25px; }
+        
+        .gift-features { display: flex; gap: 20px; }
+        .feature-item { font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .feature-item span { color: var(--blue); font-size: 18px; }
+
+        /* --- FOOTER --- */
+        footer { background: #050c18; color: white; padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+        .footer-logo { font-size: 22px; font-weight: 700; color: white; margin-bottom: 15px; display: block; }
+        .footer-links h4 { margin-bottom: 20px; font-size: 16px; }
+        .footer-links a { display: block; color: var(--text-muted); margin-bottom: 10px; font-size: 14px; text-decoration: none; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; text-align: center; color: var(--text-muted); font-size: 12px; margin-top: 40px; }
+
+        /* --- MOBİL UYUMLULUK --- */
+        @media (max-width: 768px) {
+            .hero-gifts h1 { font-size: 32px; }
+            .story-card, .story-card:nth-child(even) { flex-direction: column; gap: 30px; text-align: center; }
+            .category-tag { margin: 0 auto 15px; }
+            .gift-features { justify-content: center; }
+            .nav-links { display: none; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="logo">Weblio</a>
+            <nav class="nav-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="index.html#services">Hizmetler</a>
+                <a href="hizmet-baslatma.html">Hizmet Başlatma</a>
+                <a href="index.html#contact" class="btn-header">Bize Ulaşın</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-gifts">
+        <div class="container">
+            <h1>Sadece Yazılım Değil, Değer Üretiyoruz</h1>
+            <p>Weblio Dijital olarak, dijital varlığınızı fiziksel dünyayla birleştiriyoruz. İşbirliğimizin başlangıcında her müşterimize özel olarak hazırladığımız hediyelerimizle fark yaratın.</p>
+        </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section class="showcase container">
+        
+        <!-- CASE 1: ELITE GLOW -->
+        <div class="story-card">
+            <div class="story-image">
+                <img src="assets/elite-glow.png" alt="Elite Glow Premium Onboarding">
+            </div>
+            <div class="story-content">
+                <span class="category-tag">Lüks & Estetik</span>
+                <h2>Elite Glow: Zarafetin Dijital İmzası</h2>
+                <p>Elite Glow Güzellik Merkezi için tasarladığımız mermer dokulu QR stand ve altın varaklı NFC kart, müşterilerinin randevu sonrası Google yorumu bırakma oranını %250 artırdı. Fiziksel mekanın lüks ruhunu, temassız teknolojiyle birleştirdik.</p>
+                <div class="gift-features">
+                    <div class="feature-item"><span>✔</span> NFC Akıllı Kart</div>
+                    <div class="feature-item"><span>✔</span> Premium QR Stand</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CASE 2: ROSE ESTETİK -->
+        <div class="story-card">
+            <div class="story-image">
+                <img src="assets/rose-estetik.png" alt="Rose Estetik Modern Tasarım">
+            </div>
+            <div class="story-content">
+                <span class="category-tag">Modern & Sosyal</span>
+                <h2>Rose Estetik: Pastel Dokunuşlar</h2>
+                <p>Sosyal medya odaklı bir strateji izleyen Rose Estetik için hazırladığımız soft pembe konseptli set, banko üzerinde sadece bir araç değil, dekoratif bir obje olarak yerini aldı. Müşteriler tek bir dokunuşla işletmenin Instagram ve Google profiline yönleniyor.</p>
+                <div class="gift-features">
+                    <div class="feature-item"><span>✔</span> Soft Touch Tasarım</div>
+                    <div class="feature-item"><span>✔</span> Sosyal Medya Entegrasyonu</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CASE 3: ZENIT GÜZELLİK -->
+        <div class="story-card">
+            <div class="story-image">
+                <img src="assets/zenit-guzellik.png" alt="Zenit Güzellik Profesyonel Set">
+            </div>
+            <div class="story-content">
+                <span class="category-tag">Medikal & Profesyonel</span>
+                <h2>Zenit Güzellik: Teknolojinin Yansıması</h2>
+                <p>Medikal estetik alanında hizmet veren Zenit için maskülen ve teknolojik bir görünüm tercih ettik. Antrasit metalik detaylara sahip NFC kartlar, işletme sahibinin profesyonelliğini her tanışmada karşı tarafa dijital olarak aktarıyor.</p>
+                <div class="gift-features">
+                    <div class="feature-item"><span>✔</span> Metalik NFC Kart</div>
+                    <div class="feature-item"><span>✔</span> Google Maps Yönlendirme</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="footer-logo">Weblio</a>
+                    <p style="color: var(--text-muted); font-size: 14px;">Dijital ve fiziksel dünyayı markanız için bir araya getiriyoruz. Geleceği birlikte inşa edelim.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Hızlı Menü</h4>
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="hizmet-baslatma.html">Hizmet Başlatma</a>
+                    <a href="#">Hediyelerimiz</a>
+                </div>
+                <div class="footer-links">
+                    <h4>İletişim</h4>
+                    <a href="#">Onur Başaran</a>
+                    <a href="#">onur@weblio.com.tr</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Weblio Dijital Solutions. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('sticky', window.scrollY > 50);
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = { threshold: 0.2 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.story-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
