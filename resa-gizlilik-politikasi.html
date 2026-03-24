@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası | RESA AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* SİTE ANA TEMA AYARLARI */
+        :root {
+            --primary-dark: #0a192f;
+            --accent-gradient: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%);
+            --text-muted: #8892b0;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--white); color: var(--primary-dark); line-height: 1.7; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .content-container { max-width: 800px; margin: 0 auto; padding: 60px 20px 100px; }
+        a { text-decoration: none; transition: var(--transition); }
+
+        /* HEADER */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 0; background: rgba(255,255,255,0.95); border-bottom: 1px solid #eee; transition: var(--transition); }
+        header.sticky { padding: 12px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.05); backdrop-filter: blur(10px); }
+        header .container { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary-dark); letter-spacing: -1px; }
+        .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--primary-dark); font-weight: 500; font-size: 14px; }
+        .btn-primary { background: var(--accent-gradient); color: white !important; padding: 10px 22px; border-radius: 50px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; }
+
+        .menu-toggle{ display:none; width:44px; height:44px; border:1px solid #e8eaee; border-radius:12px; background:#fff; align-items:center; justify-content:center; cursor:pointer; }
+        nav { position: relative; }
+
+        /* PAGE HEADER */
+        .page-header { padding: 150px 0 60px; background: var(--bg-light); text-align: center; }
+        .page-header h1 { font-size: clamp(28px, 3vw, 40px); letter-spacing: -1px; margin-bottom: 10px; }
+        .page-header p { color: var(--text-muted); font-size: 14px; }
+
+        /* POLICY CONTENT STYLES */
+        .policy-content h2 { font-size: 22px; margin: 40px 0 150x; color: var(--primary-dark); border-left: 4px solid #007cf0; padding-left: 15px; }
+        .policy-content p { margin-bottom: 20px; color: #444; }
+        .policy-content ul { margin-bottom: 20px; padding-left: 20px; }
+        .policy-content li { margin-bottom: 10px; color: #444; }
+        .highlight-box { background: #e0f2fe; padding: 25px; border-radius: 15px; border-left: 5px solid #0369a1; margin: 30px 0; }
+
+        /* FOOTER */
+        footer { background: #050c18; color: white; padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
+        .footer-logo { font-size: 24px; font-weight: 700; color: white; margin-bottom: 20px; display: block; }
+        .footer-links h4 { margin-bottom: 25px; font-size: 18px; }
+        .footer-links a { display: block; color: var(--text-muted); margin-bottom: 12px; font-size: 14px; }
+        .footer-links a:hover { color: white; transform: translateX(5px); }
+        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 13px; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display:flex; }
+            .nav-links { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="logo">Weblio</a>
+            <nav id="nav">
+                <button class="menu-toggle" id="menuToggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="projelerim.html">Projelerim</a></li>
+                    <li><a href="resa.html">RESA Nedir?</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                    <li><a href="iletisim.html" class="btn-primary">Teklif Al</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Gizlilik Politikası</h1>
+            <p>Son Güncelleme: 24 Mart 2026</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="content-container policy-content">
+            <p><strong>RESA AI</strong> ("Uygulama"), gayrimenkul danışmanlarının iş akışlarını optimize etmek amacıyla <strong>Weblio Dijital</strong> çatısı altında Onur Başaran tarafından geliştirilmiştir. Kullanıcılarımızın veri gizliliği bizim için en öncelikli konudur.</p>
+
+            <h2>1. Veri Erişimi ve Kullanım İzinleri</h2>
+            <p>Uygulama, temel fonksiyonlarını yerine getirebilmek için kullanıcıdan aşağıdaki izinleri talep eder:</p>
+            <ul>
+                <li><strong>Telefon Rehberi (Kişiler):</strong> Uygulama, rehberinizdeki kişileri okuyarak belirlediğiniz kriterlere göre filtreleme yapar. Bu işlem, portföylerinizi doğru alıcılara hızlıca ulaştırmanızı sağlar.</li>
+                <li><strong>Telefon ve Arama Durumu:</strong> Görüşme bittiğinde hatırlatıcı bildirim göndermek ve arayan numarayı "Hızlı Kayıt" alanına otomatik aktarmak amacıyla kullanılır.</li>
+                <li><strong>Bildirimler:</strong> Arama sonrası hatırlatıcılar ve işlem durumları hakkında sizi bilgilendirmek için kullanılır.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Önemli Bilgilendirme:</strong> RESA AI, rehberinizdeki verileri veya telefon görüşme kayıtlarınızı hiçbir harici sunucuya <u>yedeklemez, kopyalamaz veya saklamaz.</u> Tüm veri işleme süreçleri doğrudan cihazınızın içinde (yerel olarak) gerçekleşir.
+            </div>
+
+            <h2>2. Üçüncü Taraf Servisler</h2>
+            <p>Uygulama, size gelişmiş özellikler sunmak için aşağıdaki güvenilir platformlarla entegre çalışır:</p>
+            <ul>
+                <li><strong>Google Gemini AI:</strong> Mesaj metinlerinizi profesyonelleştirmek için kullanılır. Bu süreçte sadece yazdığınız taslak metin anonim olarak işlenir.</li>
+                <li><strong>ImgBB API:</strong> Uygulama üzerinden yüklediğiniz mülk fotoğraflarının bulut üzerinde saklanması ve link oluşturulması için kullanılır.</li>
+                <li><strong>WhatsApp:</strong> Mesaj gönderim işlemleri doğrudan cihazınızdaki resmi WhatsApp uygulaması üzerinden gerçekleştirilir.</li>
+            </ul>
+
+            <h2>3. Veri Güvenliği</h2>
+            <p>Uygulama içinde oluşturulan tüm filtreleme ve CRM verileri, uygulamanın önbelleğinde yerel olarak tutulur. Uygulamayı sildiğinizde bu yerel veriler de silinir. Rehberinizdeki orijinal kayıtlar üzerinde hiçbir silme veya değiştirme işlemi yapılmaz (yeni kişi ekleme hariç).</p>
+
+            <h2>4. Çocukların Gizliliği</h2>
+            <p>Uygulamamız doğrudan gayrimenkul profesyonellerine yöneliktir ve 18 yaş altı bireylerin kullanımı için tasarlanmamıştır.</p>
+
+            <h2>5. İletişim ve Destek</h2>
+            <p>Gizlilik politikamız hakkında sorularınız olması durumunda <strong>weblio.live</strong> üzerinden veya doğrudan geliştirici kanallarımızdan bizimle iletişime geçebilirsiniz.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">Weblio</a>
+                    <p style="color: var(--text-muted); font-size: 14px;">Geleceğin dijital dünyasında markanızı birlikte inşa edelim. Profesyonel çözümler, şeffaf hizmet.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Hızlı Menü</h4>
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="projelerim.html">Projelerim</a>
+                    <a href="iletisim.html">İletişim</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Yasal Bilgiler</h4>
+                    <a href="hizmet-sozlesmesi.html">Hizmet Sözleşmesi</a>
+                    <a href="resa-gizlilik-politikasi.html">RESA Gizlilik Politikası</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Weblio Digital Solutions. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('sticky', window.scrollY > 50);
+        });
+
+        const toggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = '#fff';
+            navLinks.style.padding = '20px';
+        });
+    </script>
+</body>
+</html>

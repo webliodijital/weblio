@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projelerim | Weblio Dijital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0a192f;
+            --accent-gradient: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%);
+            --text-muted: #8892b0;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--white); color: var(--primary-dark); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; transition: var(--transition); }
+
+        /* HEADER (İletişim sayfanızdan birebir korundu) */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 0; background: rgba(255,255,255,0.95); border-bottom: 1px solid #eee; transition: var(--transition); }
+        header.sticky { padding: 12px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.05); backdrop-filter: blur(10px); }
+        header .container { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary-dark); letter-spacing: -1px; }
+
+        .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--primary-dark); font-weight: 500; font-size: 14px; }
+        .btn-primary { background: var(--accent-gradient); color: white !important; padding: 10px 22px; border-radius: 50px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; }
+
+        .menu-toggle{ display:none; width:44px; height:44px; border:1px solid #e8eaee; border-radius:12px; background:#fff; align-items:center; justify-content:center; cursor:pointer; transition: var(--transition); }
+        .menu-toggle svg{ width:22px; height:22px; }
+        nav { position: relative; }
+
+        /* PAGE HEADER */
+        .page-header { padding: 150px 0 60px; background: var(--bg-light); text-align: center; }
+        .page-header h1{ font-size: clamp(28px, 3.2vw, 44px); letter-spacing: -0.8px; margin-bottom: 10px; }
+        .page-header p{ color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        /* PROJECTS GRID */
+        .projects-section { padding: 80px 0 100px; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 30px; }
+
+        /* PROJECT CARD */
+        .project-card { 
+            background: white; 
+            border-radius: 24px; 
+            border: 1px solid #eee; 
+            overflow: hidden; 
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+            border-color: #007cf0;
+        }
+
+        .project-img { 
+            width: 100%; 
+            height: 240px; 
+            background: #e2e8f0; 
+            background-image: linear-gradient(45deg, #f1f5f9, #e2e8f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .project-img img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .project-card:hover .project-img img { transform: scale(1.05); }
+
+        .project-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-tags { display: flex; gap: 10px; margin-bottom: 15px; }
+        .tag { 
+            font-size: 11px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            background: #f1f5f9; 
+            color: #475569; 
+        }
+        .tag-ai { background: #e0f2fe; color: #0369a1; }
+
+        .project-title { font-size: 22px; font-weight: 700; margin-bottom: 10px; color: var(--primary-dark); }
+        .project-motto { font-size: 14px; font-weight: 600; color: #007cf0; margin-bottom: 12px; }
+        .project-desc { font-size: 15px; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
+
+        .project-link { 
+            font-weight: 700; 
+            font-size: 14px; 
+            color: var(--primary-dark); 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+        .project-link svg { transition: var(--transition); }
+        .project-card:hover .project-link svg { transform: translateX(5px); }
+
+        /* FOOTER (İletişim sayfanızdan birebir korundu) */
+        footer { background: #050c18; color: white; padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
+        .footer-logo { font-size: 24px; font-weight: 700; color: white; margin-bottom: 20px; display: block; }
+        .footer-links h4 { margin-bottom: 25px; font-size: 18px; }
+        .footer-links a { display: block; color: var(--text-muted); margin-bottom: 12px; font-size: 14px; }
+        .footer-links a:hover { color: white; transform: translateX(5px); }
+        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 13px; }
+
+        @media (max-width: 992px) { .projects-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            header { padding: 14px 0; }
+            .menu-toggle{ display:flex; }
+            .nav-links{ position:absolute; top: calc(100% + 12px); right: 0; width: min(92vw, 360px); flex-direction: column; align-items: stretch; gap: 8px; padding: 14px; background: rgba(255,255,255,0.98); border: 1px solid #eee; border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,0.10); transform: translateY(-8px); opacity: 0; visibility: hidden; pointer-events: none; transition: var(--transition); backdrop-filter: blur(12px); }
+            nav.open .nav-links{ transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .page-header { padding: 120px 0 44px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="logo">Weblio</a>
+            <nav id="nav">
+                <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="projelerim.html">Projelerim</a></li>
+                    <li><a href="hizmet-sozlesmesi.html">Paketler</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                    <li><a href="iletisim.html" class="btn-primary">Teklif Al</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Projelerim</h1>
+            <p>Yapay zeka ve modern teknolojileri kullanarak geliştirdiğim dijital çözümler ve sektörel araçlar.</p>
+        </div>
+    </div>
+
+    <section class="container projects-section">
+        <div class="projects-grid">
+            
+            <!-- PROJE KARTI: EMLAK ASİSTAN AI -->
+            <article class="project-card">
+                <div class="project-img">
+                    <!-- Buraya projenin ekran görüntüsünü (örn: img/emlak-asistan.jpg) ekleyebilirsin -->
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="EmlakAsistan AI">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag">Mobile App</span>
+                        <span class="tag tag-ai">Gemini AI</span>
+                        <span class="tag">CRM</span>
+                    </div>
+                    <h2 class="project-title">RESA Emlak Rehberi</h2>
+                    <p class="project-motto">"Telefon rehberinizi bir satış aracına dönüştürün."</p>
+                    <p class="project-desc">
+                        Gayrimenkul danışmanları için özel olarak geliştirilen, rehber filtreleme, yapay zeka destekli profesyonel mesaj oluşturma ve otomatik arama takibi sunan mobil CRM asistanı.
+                    </p>
+                    <a href="resa.html" class="project-link">
+                        Projeyi İncele 
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap round stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Buraya gelecekte yeni projelerini aynı kart yapısıyla ekleyebilirsin -->
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">Weblio</a>
+                    <p style="color: var(--text-muted); font-size: 14px;">Geleceğin dijital dünyasında markanızı birlikte inşa edelim. Profesyonel çözümler, şeffaf hizmet.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Hızlı Menü</h4>
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="projelerim.html">Projelerim</a>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </div>
+                <div class="footer-links">
+                    <h4>Yasal Bilgiler</h4>
+                    <a href="hizmet-sozlesmesi.html">Hizmet Sözleşmesi</a>
+                    <a href="gizlilik-politikasi.html">Gizlilik Politikası</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Weblio Digital Solutions. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('sticky', window.scrollY > 50);
+        });
+
+        const nav = document.getElementById('nav');
+        const toggle = document.getElementById('menuToggle');
+        const links = document.getElementById('navLinks');
+
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+
+        links.addEventListener('click', () => {
+            nav.classList.remove('open');
+        });
+    </script>
+</body>
+</html>
